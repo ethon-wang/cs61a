@@ -372,8 +372,14 @@ def boar_strategy(score, opponent_score, threshold=11, num_rolls=6):
 def sus_strategy(score, opponent_score, threshold=11, num_rolls=6):
     """This strategy returns 0 dice when your score would increase by at least threshold."""
     # BEGIN PROBLEM 11
-    return num_rolls  # Remove this line once implemented.
-    # END PROBLEM 11
+  # Calculate the player's score after rolling 0 dice using sus_update.
+    score_after_roll_0 = sus_update(0, score, opponent_score, six_sided)
+
+    # Check if rolling 0 would result in a score at least threshold points more than the start.
+    if score_after_roll_0 - score >= threshold:
+        return 0  # Return 0 dice (no roll) if Sus Fuss is advantageous.
+    else:
+        return num_rolls  # Return the default number of rolls otherwise.    # END PROBLEM 11
 
 
 def final_strategy(score, opponent_score):
