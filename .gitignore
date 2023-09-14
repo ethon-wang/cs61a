@@ -1,0 +1,17 @@
+*.pyc
+*.ok_history
+*.ok_history.*
+_pycache__/*
+tests/__pycache__/*
+tests/__pycache__/01.cpython-311.pyc
+tests/__pycache__/02.cpython-311.pyc
+tests/__pycache__/03.cpython-311.pyc
+tests/__pycache__/04.cpython-311.pyc
+tests/__pycache__/05.cpython-311.pyc
+tests/__pycache__/06.cpython-311.pyc
+tests/__pycache__/07.cpython-311.pyc
+tests/__pycache__/08.cpython-311.pyc
+tests/__pycache__/09.cpython-311.pyc
+tests/__pycache__/10.cpython-311.pyc
+tests/__pycache__/11.cpython-311.pyc
+tests/__pycache__/12.cpython-311.pyc
