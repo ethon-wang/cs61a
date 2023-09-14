@@ -301,6 +301,24 @@ def max_scoring_num_rolls(dice=six_sided, samples_count=1000):
     # BEGIN PROBLEM 9
     "*** YOUR CODE HERE ***"
     # END PROBLEM 9
+    # Initialize with a value lower than any possible average.
+    max_average = -1
+    max_num_rolls = -1
+
+    # Perform experiments for each number of rolls from 1 to 10.
+    for num_rolls in range(1, 11):
+        # Use make_averaged to get the averaged_roll_dice function for the current number of rolls.
+        averaged_roll_dice = make_averaged(roll_dice, samples_count)
+
+        # Calculate the average score for the current number of rolls.
+        average_score = averaged_roll_dice(num_rolls, dice)
+
+        # Check if the current average score is greater than the maximum.
+        if average_score > max_average:
+            max_average = average_score
+            max_num_rolls = num_rolls
+
+    return max_num_rolls
 
 
 def winner(strategy0, strategy1):
@@ -344,7 +362,10 @@ def boar_strategy(score, opponent_score, threshold=11, num_rolls=6):
     points, and returns NUM_ROLLS otherwise. Ignore score and Sus Fuss.
     """
     # BEGIN PROBLEM 10
-    return num_rolls  # Remove this line once implemented.
+    if boar_brawl(score, opponent_score) >= threshold:
+        return 0  # Return 0 dice (no roll) if Boar Brawl is advantageous.
+    else:
+        return num_rolls  # Return the default number of rolls otherwise.
     # END PROBLEM 10
 
 
