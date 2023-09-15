@@ -388,8 +388,20 @@ def final_strategy(score, opponent_score):
     *** YOUR DESCRIPTION HERE ***
     """
     # BEGIN PROBLEM 12
-    return 6  # Remove this line once implemented.
-    # END PROBLEM 12
+    for num_dice in range(3):
+        if score + num_dice * (1 + 2 + 3 + 4 + 5 + 6) / 6 >= GOAL:
+            return num_dice
+
+    # If in the lead, take fewer risks
+    if score > opponent_score:
+        return 2
+
+    # Roll 0 if it gives more points on average than rolling 6
+    if score + (1 + 2 + 3 + 4 + 5 + 6) / 6 > score + 6:
+        return 0
+
+    # Default strategy: roll 6 dice
+    return 6    # END PROBLEM 12
 
 
 ##########################
