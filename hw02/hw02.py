@@ -154,7 +154,7 @@ def mul_by_num(num):
     >>> y(-4)
     -8
     """
-    return ______
+    return lambda x: x*num
 
 
 def add_results(f1, f2):
